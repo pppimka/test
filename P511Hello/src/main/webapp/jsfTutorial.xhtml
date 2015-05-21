@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>JSF Tutorial</title>
+</h:head>
+<h:body>
+	<h2>h:inputText example</h2>
+	<h:form>
+		<h3>Read-Only input text box</h3>
+		<h:inputText value="Hello World!" readonly="true" />
+		<h3>Input text box</h3>
+		<h:inputText value="Hello World" />
+	</h:form>
+
+	<h:form>
+		<h3>Mutiple checkboxes</h3>
+		<h:selectManyCheckbox value="#{checkedBean.data}">
+			<f:selectItem itemValue="1" itemLabel="Red" />
+			<f:selectItem itemValue="2" itemLabel="Green" />
+			<f:selectItem itemValue="3" itemLabel="Blue" />
+			<f:selectItem itemValue="4" itemLabel="Yellow" />
+			<f:selectItem itemValue="5" itemLabel="Black" />
+		</h:selectManyCheckbox>
+		<h:commandButton value="Submit" action="resultCheck" />
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>New Deposit</title>
+</h:head>
+<h:body>
+	<h1>New Deposit</h1>
+	<h:form>
+		<h:panelGrid columns="3" styleClass="depoTable">
+			<h:outputText value="Depo type:"></h:outputText>
+
+			<h:selectOneRadio value="#{newDepoInfo.depoType}">
+				<f:selectItem itemValue="1" itemLabel="Simple" />
+				<f:selectItem itemValue="2" itemLabel="Month Capitalize" />
+			</h:selectOneRadio>
+			<h:outputText value=" "></h:outputText>
+			<h:outputText value="Start date:"></h:outputText>
+			<h:inputText id="sDate" value="#{newDepoInfo.startDate}"
+				required="true" requiredMessage="#{msgs.startRequired}"
+				converterMessage="#{msgs.startConverter}">
+
+				<f:convertDateTime pattern="dd.MM.yyyy" />
+			</h:inputText>
+			<h:message for="sDate" style="color:red" />
+			<h:outputText value="Day long:"></h:outputText>
+			<h:inputText id="dLong" value="#{newDepoInfo.dayLong}"
+				required="true" requiredMessage="#{msgs.dayLongRequired}"
+				converterMessage="#{msgs.dayLongConverter}"
+				validatorMessage="#{msgs.dayLongRange}">
+
+				<f:convertNumber />
+				<f:validateLongRange minimum="1" maximum="370" />
+			</h:inputText>
+			<h:message for="dLong" style="color:red" />
+			<h:outputText value="Sum:"></h:outputText>
+			<h:inputText id="sum" value="#{newDepoInfo.sum}">
+				<f:convertNumber minFractionDigits="2" />
+				<f:validateDoubleRange minimum="5000.00" maximum="100000000.00" />
+			</h:inputText>
+			<h:message for="sum" style="color:red" />
+			<h:outputText value="Interest rate:"></h:outputText>
+			<h:inputText id="iRate" value="#{newDepoInfo.interestRate}">
+				<f:convertNumber minFractionDigits="2" />
+				<f:validateDoubleRange minimum="0.01" maximum="100.00" />
+			</h:inputText>
+			<h:message for="iRate" style="color:red" />
+		</h:panelGrid>
+		<h:commandButton value="Submit" action="resultDepo" />
+	</h:form>
+</h:body>
+</html>
+
+
