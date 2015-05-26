@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Merchant List</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<h2>Registered Merchants</h2> 
+    #{merchantBean.refreshList()}
+    <h:form>
+		<h:panelGrid columns="1">
+			<h:commandButton value="Add Merchant"
+				action="#{merchantBean.addMerchant()}" />
+
+			<h:dataTable value="#{merchantBean.merchants}" var="merchant"
+				styleClass="merchantTable" headerClass="merchantTableHeader"
+				rowClasses="merchantTableOddRow,
+			    merchantTableEvenRow">
+				<h:column>
+					<f:facet name="header">Id</f:facet> 
+					#{merchant.id} 
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet> 
+						#{merchant.name} 
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+					</f:facet>
+					<h:commandButton action="#{merchantBean.editMerchant(merchant.id)}"
+						value="Edit" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

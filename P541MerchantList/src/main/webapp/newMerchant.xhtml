@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>New Merchant</title>
+</h:head>
+<h:body>
+	<h1>New Merchant</h1>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputText value="Merchant name:" />
+			<h:inputText id="mName" value="#{merchantBean.merchant.name}"
+				required="true" requiredMessage="#{msgs.nameRequired}">
+			</h:inputText>
+			<h:message for="mName" style="color:red" />
+
+			<h:outputText value="Bank name" />
+			<h:inputText id="mBank" value="#{merchantBean.merchant.bankName}"
+				required="true" requiredMessage="#{msgs.bankNameRequired}">
+			</h:inputText>
+			<h:message for="mBank" style="color:red" />
+
+			<h:outputText value="Bank swift code:" />
+			<h:inputText id="mSwift" value="#{merchantBean.merchant.swift}"
+				required="true" requiredMessage="#{msgs.swiftRequired}">
+			</h:inputText>
+			<h:message for="mSwift" style="color:red" />
+
+			<h:outputText value="Account:" />
+			<h:inputText id="mAccount" value="#{merchantBean.merchant.account}"
+				required="true" requiredMessage="#{msgs.accountRequired}">
+			</h:inputText>
+			<h:message for="mAccount" style="color:red" />
+
+			<h:outputText value="Charge percent:" />
+			<h:inputText id="charge" value="#{merchantBean.merchant.charge}"
+				required="true" requiredMessage="#{msgs.chargeRequired}"
+				validatorMessage="#{msgs.chargeRange}">
+				<f:convertNumber minFractionDigits="2" />
+				<f:validateDoubleRange minimum="0.10" maximum="15.00" />
+			</h:inputText>
+			<h:message for="charge" style="color:red" />
+
+			<h:outputText value="Aggregation period:" />
+			<h:selectOneMenu value="#{merchantBean.merchant.period}">
+				<f:selectItem itemValue="1" itemLabel="Weekly" checked="true" />
+				<f:selectItem itemValue="2" itemLabel="Monthly" />
+				<f:selectItem itemValue="3" itemLabel="10 Days" />
+			</h:selectOneMenu>
+			<h:outputText value=" "></h:outputText>
+
+			<h:outputText value="Min sum:" />
+			<h:inputText id="minSum" value="#{merchantBean.merchant.minSum}"
+				required="true" requiredMessage="#{msgs.minSumRequired}"
+				validatorMessage="#{msgs.minSumRange}">
+				<f:convertNumber minFractionDigits="2" />
+				<f:validateDoubleRange minimum="1000.00" maximum="150000000.00" />
+			</h:inputText>
+			<h:message for="minSum" style="color:red" />
+
+
+		</h:panelGrid>
+		<h:commandButton value="Submit" action="#{merchantBean.saveMerchant}" />
+	</h:form>
+</h:body>
+</html>

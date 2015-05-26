@@ -1,0 +1,18 @@
+----------------------------------------------------------------
+Tue May 26 20:15:30 EEST 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-014d-9138-c488-0000063cb0a8 
+on database directory C:\Users\oper4\workspace\ann_palii_EE\CM with class loader WebappClassLoader
+  context: P511Hello
+  delegate: false
+----------> Parent Classloader:
+java.net.URLClassLoader@76ed5528
+ 
+Loaded from file:/C:/Users/oper4/workspace/ann_palii_EE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/P541MerchantList/WEB-INF/lib/derby-10.10.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\oper4\workspace\ann_palii_EE\P541MerchantList
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
